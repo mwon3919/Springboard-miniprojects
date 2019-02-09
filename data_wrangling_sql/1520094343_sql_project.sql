@@ -64,7 +64,7 @@ in question. */
 
 SELECT name, monthlymaintenance, 
        CASE WHEN monthlymaintenance <= 100 THEN 'cheap'
-       ELSE 'expensive' END 
+       ELSE 'expensive' END AS cost
 FROM Facilities
 
 /* Q6: You'd like to get the first and last name of the last member(s)
@@ -85,7 +85,7 @@ JOIN Bookings b
 ON m.memid = b.memid
 JOIN Facilities f
 ON b.facid = f.facid
-WHERE f.name = 'Tennis Court 1' OR f.name = 'Tennis Court 2'
+WHERE f.name LIKE 'Tennis%'
 ORDER BY member_name
 
 /* Q8: How can you produce a list of bookings on the day of 2012-09-14 which
